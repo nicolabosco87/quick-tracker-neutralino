@@ -7,7 +7,9 @@
   "enableServer": true,
   "enableNativeAPI": true,
   "nativeAllowList": [
-    "app.*"
+    "app.*",
+    "window.*",
+    "os.*"
   ],
   "modes": {
     "window": {
@@ -16,7 +18,9 @@
       "height": 500,
       "minWidth": 400,
       "minHeight": 200,
-      "icon": "/quick-tracker-react/public/vite.svg"
+      "icon": "/quick-tracker-react/public/icon.png",
+      "enableInspector": true,
+      "exitProcessOnClose": false
     }
   },
   "cli": {
