@@ -27,6 +27,7 @@ Neutralino.events.on('trayIconClicked', (event: any) => {
   }
 })
 
+
 let tray = {
   icon: '/assets/icon.png',
   menuItems: [

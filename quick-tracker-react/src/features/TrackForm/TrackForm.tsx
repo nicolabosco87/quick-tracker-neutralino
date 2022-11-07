@@ -52,7 +52,7 @@ export const TrackForm = ({ afterTrack, onSkip }: TrackFormProps) => {
     [addTrackAndCallback]
   );
 
-  const uniqueTrackings: string[] = trackings.reduce((prev, t) => {
+  const uniqueTrackings: string[] = trackings.reduce((prev: string[], t) => {
     if (prev.indexOf(t.description) < 0) {
       prev.push(t.description);
     }

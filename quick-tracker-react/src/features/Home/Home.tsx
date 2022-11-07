@@ -26,7 +26,7 @@ export interface IDayTracks {
 }
 
 export const Home = () => {
-  const [selectedDay, setselectedDay] = useState(new Date());
+  const [selectedDay, setselectedDay] = useState<Date | null>(new Date());
   const theme = useMantineTheme();
 
   const { trackings } = useSnapshot(state);
@@ -44,7 +44,9 @@ export const Home = () => {
       }
 
       const current = gt.get(dayKey);
-      gt.set(dayKey, { ...current, tracks: [...current.tracks, track] });
+      if (current) {
+        gt.set(dayKey, { ...current, tracks: [...current.tracks, track] });
+      }
     });
 
     return gt;

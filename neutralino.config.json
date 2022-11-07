@@ -20,6 +20,7 @@
       "minHeight": 200,
       "icon": "/quick-tracker-react/public/icon.png",
       "enableInspector": true,
+      "exportAuthInfo": true,
       "exitProcessOnClose": false
     }
   },
@@ -33,6 +34,6 @@
     "frontendLibrary": {
       "patchFile": "/quick-tracker-react/index.html",
       "devUrl": "http://localhost:3000"
-  }
+    }
   }
 }

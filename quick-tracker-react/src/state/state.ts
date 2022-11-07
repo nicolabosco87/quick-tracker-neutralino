@@ -40,8 +40,9 @@ export const initialState: TState = {
   },
 };
 
+const stateFromStorage = typeof localStorage !== "undefined" && localStorage.getItem(STATE_STORAGE_KEY);
 export const state = proxy<TState>(
-  (JSON.parse(typeof localStorage !== "undefined" && localStorage.getItem(STATE_STORAGE_KEY)) as TState) || initialState
+  typeof stateFromStorage === "string" ? JSON.parse(stateFromStorage) as TState : initialState
 );
 
 subscribe(state, () => {

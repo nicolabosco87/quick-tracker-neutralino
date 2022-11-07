@@ -1,0 +1,19 @@
+{
+  "name": "quick-tracker",
+  "version": "1.0.0",
+  "description": "An empty Neutralinojs app, extend as you wish",
+  "main": "index.js",
+  "scripts": {
+    "dev": "neu run --frontend-lib-dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolabosco87/quick-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolabosco87/quick-tracker/issues"
+  },
+  "homepage": "https://github.com/nicolabosco87/quick-tracker#readme"
+}
