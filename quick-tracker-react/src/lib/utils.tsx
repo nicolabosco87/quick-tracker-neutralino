@@ -3,7 +3,8 @@ import { TSettings } from "../state/state";
 import { WindowEnhanced } from "../types";
 
 export const minimizeWindow = () => {
-  (window as WindowEnhanced).electronAPI.minimize();
+  // (window as WindowEnhanced).electronAPI.minimize();
+  Neutralino.window.hide();
 };
 
 export const calculateReminderMinutes = (settings: TSettings): string[] => {
