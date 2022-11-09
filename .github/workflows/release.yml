@@ -1,0 +1,48 @@
+name: release
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install -g @neutralinojs/neu
+
+    - name: Build Frontend
+      working-directory: ./quick-tracker-react
+      run: |
+        npm install 
+        npm build
+
+    - name: Build App
+    - run: npm build
+
+    - name: get-npm-version
+      id: package-version
+      uses: martinbeentjes/npm-get-version-action@main
+
+    - name: Release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: false
+        title: release-${{ steps.package-version.outputs.current-version}}
+        files: |
+          dist/quick-tracker/quick-tracker-win_x64.exe Quick-Tracker-${{ steps.package-version.outputs.current-version}}.exe
+          
+
+    
