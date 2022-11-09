@@ -10,20 +10,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 
 Neutralino.init();
 
-Neutralino.events.on('windowMinimize', () => {
-  Neutralino.window.hide() // Hiding the window and the task bar icon
-})
-
-Neutralino.events.on('windowClose', (event: any) => {
-  console.log("windowClose", event);
-  Neutralino.window.hide() // Hiding the window instead of closing the app with Neutralino.app.exit()
-  return false;
-})
-
-
-
 let tray = {
-  icon: '/icon.png',
+  icon: '/quick-tracker-react/src/assets/icon.png',
   menuItems: [
     {id: "history", text: "History"},
     {text: "-"},

@@ -43,6 +43,14 @@ export const Router = () => {
   }, [])
 
   useEffect(( ) => {
+    Neutralino.events.on('windowMinimize', () => {
+      Neutralino.window.hide() // Hiding the window and the task bar icon
+    })
+    
+    Neutralino.events.on('windowClose', (event: any) => {
+      Neutralino.window.hide() // Hiding the window instead of closing the app with Neutralino.app.exit()
+    })
+    
     Neutralino.events.on('trayMenuItemClicked', (event: any, menuItem: any) => {
       if (event.detail.id === "quit") {
         Neutralino.app.exit();

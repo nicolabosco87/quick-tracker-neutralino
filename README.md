@@ -1,6 +1,6 @@
-# neutralinojs-zero
-An empty Neutralinojs app, extend as you wish
+# Quick Tracker
 
-```
-neu create myapp --template neutralinojs/neutralinojs-zero
-```
+App that reminds you to do your trackings.
+
+### Resources
+https://github.com/FeedTheMEe/neutralinojs-vite-vue-ts-template
