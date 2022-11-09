@@ -28,7 +28,7 @@ jobs:
         npm build
 
     - name: Build App
-    - run: npm build
+      run: npm build
 
     - name: get-npm-version
       id: package-version
