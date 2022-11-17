@@ -42,7 +42,7 @@ jobs:
         prerelease: false
         title: release-${{ steps.package-version.outputs.current-version}}
         files: |
-          dist/quick-tracker/quick-tracker-win_x64.exe Quick-Tracker-${{ steps.package-version.outputs.current-version}}.exe
+          dist/quick-tracker/**
           
 
     
