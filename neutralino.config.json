@@ -22,7 +22,8 @@
       "icon": "/quick-tracker-react/public/icon.png",
       "enableInspector": true,
       "exportAuthInfo": true,
-      "exitProcessOnClose": false
+      "exitProcessOnClose": false,
+      "borderless": false
     }
   },
   "cli": {
@@ -34,7 +35,7 @@
     "clientVersion": "3.6.0",
     "frontendLibrary": {
       "patchFile": "/quick-tracker-react/index.html",
-      "devUrl": "http://localhost:3000"
+      "devUrl": "http://localhost:3011"
     }
   }
 }

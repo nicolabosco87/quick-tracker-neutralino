@@ -42,7 +42,7 @@ export const Router = () => {
     }
   }, [])
 
-  useEffect(( ) => {
+  useEffect((   ) => {
     Neutralino.events.on('windowMinimize', () => {
       Neutralino.window.hide() // Hiding the window and the task bar icon
     })
@@ -51,15 +51,15 @@ export const Router = () => {
       Neutralino.window.hide() // Hiding the window instead of closing the app with Neutralino.app.exit()
     })
     
-    Neutralino.events.on('trayMenuItemClicked', (event: any, menuItem: any) => {
+    Neutralino.events.on('trayMenuItemClicked', async (event: any, menuItem: any) => {
       if (event.detail.id === "quit") {
         Neutralino.app.exit();
       }
 
       if (event.detail.id === "history") {
-        Neutralino.window.minimize();
         navigate("/");
-        Neutralino.window.show();
+        await Neutralino.window.show();
+        Neutralino.window.focus();
       }
     })
   }, []);
