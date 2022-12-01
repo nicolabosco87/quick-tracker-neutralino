@@ -40,17 +40,28 @@ export const initialState: TState = {
   },
 };
 
-const stateFromStorage = typeof localStorage !== "undefined" && localStorage.getItem(STATE_STORAGE_KEY);
-export const state = proxy<TState>(
-  typeof stateFromStorage === "string" ? JSON.parse(stateFromStorage) as TState : initialState
-);
+let loadedFromDisk = false;
+export const state = proxy<TState>(initialState);
 
 subscribe(state, () => {
-  if (typeof localStorage !== "undefined") {
-    localStorage.setItem(STATE_STORAGE_KEY, JSON.stringify(state));
+  if (loadedFromDisk) {
+    Neutralino.filesystem.writeFile("./qts.json", JSON.stringify(state));
   }
 });
 
 declare module "valtio" {
   function useSnapshot<T extends object>(p: T): T;
 }
+
+export const loadFromDisk = async () => {
+  try {
+    const rawData = await Neutralino.filesystem.readFile("./qts.json");
+    const data = JSON.parse(rawData);
+    state.settings = data.settings ?? initialState.settings;
+    state.trackings = data.trackings ?? initialState.trackings;
+    loadedFromDisk = true;
+  } catch (error) {
+    console.error("Error while loading disk data", error);
+    loadedFromDisk = true;
+  }
+};

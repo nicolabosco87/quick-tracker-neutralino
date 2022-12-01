@@ -1,6 +1,7 @@
 @TODO
 ☐ choose monitor in settings
 ☐ autocomplete on tracking
-☐ github workflow
+✔ github workflow @done(22-12-02 00:09)
 ☐ add translations
 ☐ set header background
+☐ improve initial data loading

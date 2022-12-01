@@ -1,10 +1,8 @@
-name: release
+name: build-test
 
 on:
   push:
     branches: [ main ]
-    # tags: 
-    #   - v1.*
 
 jobs:
   build:
@@ -30,23 +28,5 @@ jobs:
         npm run build
 
     - name: Build App
-      run: |
-        neu update
-        neu build --release
-
-    - name: get-npm-version
-      id: package-version
-      uses: martinbeentjes/npm-get-version-action@main
-
-    - name: Release
-      uses: "marvinpinto/action-automatic-releases@latest"
-      with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "latest"
-        prerelease: false
-        title: release-${{ steps.package-version.outputs.current-version}}
-        files: |
-          dist/quick-tracker-release.zip
-          
-
+      run: neu build
     

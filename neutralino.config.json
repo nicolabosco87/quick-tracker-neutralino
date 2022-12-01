@@ -6,12 +6,7 @@
   "url": "/",
   "enableServer": true,
   "enableNativeAPI": true,
-  "nativeAllowList": [
-    "app.*",
-    "window.*",
-    "os.*",
-    "computer.*"
-  ],
+  "nativeAllowList": ["app.*", "window.*", "os.*", "computer.*", "filesystem.*"],
   "modes": {
     "window": {
       "title": "Quick Tracker",
@@ -20,7 +15,7 @@
       "minWidth": 400,
       "minHeight": 300,
       "icon": "/quick-tracker-react/public/icon.png",
-      "enableInspector": true,
+      "enableInspector": false,
       "exportAuthInfo": true,
       "exitProcessOnClose": false,
       "borderless": false
