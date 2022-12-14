@@ -1,4 +1,16 @@
-import { ActionIcon, Box, Button, Container, Group, Paper, Select, Space, Text, Title } from "@mantine/core";
+import {
+  ActionIcon,
+  Box,
+  Button,
+  Checkbox,
+  Container,
+  Group,
+  Paper,
+  Select,
+  Space,
+  Text,
+  Title,
+} from "@mantine/core";
 import { TimeInput } from "@mantine/dates";
 import { useForm, yupResolver } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
@@ -14,6 +26,7 @@ import { state, Frequency } from "../state/state";
 interface FormValues {
   frequency: Frequency;
   ranges: { start: Date; end: Date }[];
+  alwaysOnTop: boolean;
 }
 
 const schema = Yup.object().shape({
@@ -24,6 +37,7 @@ const schema = Yup.object().shape({
       end: Yup.date().required("End time is required"),
     })
   ),
+  alwaysOnTop: Yup.boolean(),
 });
 
 export const Settings = () => {
@@ -36,6 +50,7 @@ export const Settings = () => {
         start: dayjs(`2000-01-01 ${r.start}`).toDate(),
         end: dayjs(`2000-01-01 ${r.end}`).toDate(),
       })),
+      alwaysOnTop: settings?.alwaysOnTop ?? false,
     },
     validate: yupResolver(schema),
   });
@@ -47,6 +62,7 @@ export const Settings = () => {
         start: dayjs(r.start).format("HH:mm"),
         end: dayjs(r.end).format("HH:mm"),
       })),
+      alwaysOnTop: values.alwaysOnTop,
     });
     showNotification({
       autoClose: 5000,
@@ -113,6 +129,10 @@ export const Settings = () => {
             </Button>
           </Group>
         </Paper>
+
+        <Space h={20} />
+
+        <Checkbox {...getInputProps("alwaysOnTop", {type: "checkbox"})} label={"Always on Top"}/>
 
         <Space h={20} />
 

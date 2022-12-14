@@ -12,3 +12,5 @@
 .storage
 *.log
 .tmp
+
+.idea/

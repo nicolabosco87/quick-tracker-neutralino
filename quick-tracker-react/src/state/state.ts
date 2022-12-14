@@ -25,6 +25,7 @@ export type TState = {
 export type TSettings = {
   frequency: Frequency;
   ranges: TRange[];
+  alwaysOnTop: boolean
 };
 
 export const initialState: TState = {
@@ -37,6 +38,7 @@ export const initialState: TState = {
         end: "18:00",
       },
     ],
+    alwaysOnTop: false,
   },
 };
 
