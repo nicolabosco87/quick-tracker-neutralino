@@ -64,6 +64,10 @@ export const Router = () => {
     })
   }, []);
 
+  useEffect(() => {
+    Neutralino.window.setAlwaysOnTop(settings.alwaysOnTop);
+  }, [settings.alwaysOnTop])
+
   return (
     <Routes>
       <Route

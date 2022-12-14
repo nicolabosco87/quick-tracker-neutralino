@@ -11,6 +11,7 @@ describe("Check schedules", () => {
           end: "13:00",
         },
       ],
+      alwaysOnTop: false,
     };
 
     const minutes = calculateReminderMinutes(settings);
@@ -37,6 +38,7 @@ describe("Check schedules", () => {
           end: "18:00",
         },
       ],
+      alwaysOnTop: false,
     };
 
     const minutes = calculateReminderMinutes(settings);
